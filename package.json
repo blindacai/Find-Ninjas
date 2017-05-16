@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/blindacai/Find-Ninjas/issues"
   },
-  "homepage": "https://github.com/blindacai/Find-Ninjas#readme"
+  "homepage": "https://github.com/blindacai/Find-Ninjas#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
 }
