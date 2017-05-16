@@ -1,0 +1,20 @@
+{
+  "name": "find-ninjas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blindacai/Find-Ninjas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blindacai/Find-Ninjas/issues"
+  },
+  "homepage": "https://github.com/blindacai/Find-Ninjas#readme"
+}
