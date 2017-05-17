@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const NinjaSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'Name field is required']  // instance will not be saved to db when name is empty
+        required: [true, 'Name field is required']  // instance will not be saved to db when name is missing
     },
     rank: {
         type: String
