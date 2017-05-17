@@ -5,8 +5,22 @@ const Ninja = require('../models/ninja');
 // get a list of ninjas from the db
 // next: done here, move onto the next middleware: error handling
 router.get('/ninjas', function(req, res, next){
-    res.send({type: 'GET'});
+    /* to get all ninjas
+    Ninja.find({}).then(function(ninjas){
+        res.send(ninjas);
+    });
+    */
+
+    // to get based on geo -> url params
+    // geoNear returns a promise
+    Ninja.geoNear(
+        {type: "Point", coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+        {maxDistance: 100000, spherical: true}
+    ).then(function(ninjas){
+        res.send(ninjas);
+    });
 });
+
 
 // add a new ninjas to the db
 router.post('/ninjas', function(req, res, next){
@@ -22,6 +36,7 @@ router.post('/ninjas', function(req, res, next){
     }).catch(next);
 });
 
+
 // update a ninja in the db
 router.put('/ninjas/:id', function(req, res, next){
     Ninja.findByIdAndUpdate({_id: req.params.id}, req.body).then(function(){
@@ -32,6 +47,7 @@ router.put('/ninjas/:id', function(req, res, next){
         });
     });
 });
+
 
 // delete a ninja from the db
 router.delete('/ninjas/:id', function(req, res, next){
