@@ -10,6 +10,9 @@ const app = express();
 mongoose.connect('mongodb://localhost/ninjago');  // db ninjago does not exist; when we connect to mongodb, it will create for us
 mongoose.Promise = global.Promise;   // mongoose's promise is deprecated
 
+// when there's a get reuqest for html, it will look into public folder
+app.use(express.static('public'));
+
 // .use for middleware
 app.use(bodyParser.json());  // order matters
 
