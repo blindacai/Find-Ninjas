@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Ninja = require('../models/ninja');
 
 // get a list of ninjas from the db
 router.get('/ninjas', function(req, res){
@@ -8,7 +9,16 @@ router.get('/ninjas', function(req, res){
 
 // add a new ninjas to the db
 router.post('/ninjas', function(req, res){
-    res.send({type: 'POST'});
+    // var ninja = new Ninja(req.body);
+    // ninja.save();  // it will be saved to the collection specified
+
+    /*
+        or we can do this
+        it will create an instance of ninja locally and save it to db
+    */
+    Ninja.create(req.body).then(function(ninja){
+        res.send(ninja);
+    });
 });
 
 // update a ninja in the db
